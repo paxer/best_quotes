@@ -1,6 +1,5 @@
 require "yo_ho_ho"
 $LOAD_PATH << File.join(File.dirname(__FILE__), "..", "app", "controllers")
-require 'quotes_controller'
 
 module BestQuotes
   class Application < YoHoHo::Application
