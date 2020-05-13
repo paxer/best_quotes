@@ -1,4 +1,5 @@
 require "rack/test"
+require_relative 'app/models/quotes'
 
 RSpec.describe QuotesController do
   include Rack::Test::Methods
@@ -24,6 +25,14 @@ RSpec.describe QuotesController do
     it 'returns html response' do
       get '/quotes/show?id=1'
       expect(last_response.body).to include('Submitted by Gandalf')
+    end
+  end
+
+  context '#show_from_db' do
+    it 'returns html response' do
+      quote = Quotes.create 'author' => 'Gandalf', 'quote' => 'Many that live deserve death. And some that die deserve life. Can you give it to them? Then do not be too eager to deal out death in judgement.'
+      get "/quotes/show_from_db?id=#{quote['id']}"
+      expect(last_response.body).to include('Many that live deserve death')
     end
   end
 end
