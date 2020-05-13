@@ -4,7 +4,7 @@ class QuotesController < YoHoHo::Controller
   end
 
   def quote_1
-    quote = YoHoHo::Model::FileModel.find(1)
+    quote = FileModel.find(1)
     render :quote_1, obj: quote
   end
 end
