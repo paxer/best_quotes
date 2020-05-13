@@ -1,11 +1,16 @@
 class QuotesController < YoHoHo::Controller
   def index
     quotes = FileModel.all
-    render :index, :quotes => quotes
+    render :index, quotes: quotes
+  end
+
+  def show
+    quote = FileModel.find(params['id'])
+    render :show, obj: quote
   end
 
   def a_quote
-    render 'a_quote', wizard_name: 'Gandalf'
+    render :a_quote, wizard_name: 'Gandalf'
   end
 
   def quote_1

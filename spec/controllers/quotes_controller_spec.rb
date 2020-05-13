@@ -19,4 +19,11 @@ RSpec.describe QuotesController do
       expect(last_response.body).to include('Submitted by Gandalf')
     end
   end
+
+  context '#show' do
+    it 'returns html response' do
+      get '/quotes/show?id=1'
+      expect(last_response.body).to include('Submitted by Gandalf')
+    end
+  end
 end
