@@ -12,4 +12,11 @@ RSpec.describe QuotesController do
       expect(last_response.body).to include('So do I, said Gan')
     end
   end
+
+  context '#quote_1' do
+    it 'returns html response' do
+      get '/quotes/quote_1'
+      expect(last_response.body).to include('Submitted by Gandalf')
+    end
+  end
 end
